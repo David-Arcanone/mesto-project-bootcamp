@@ -1,0 +1,27 @@
+.Element__like{
+    width: 22px;
+    height: 19px;
+    clip: rect(0 0 0 0);
+    position: relative;
+}
+.Element__check-label{
+    width: 22px;
+    height: 19px;
+    padding: 0;
+    margin: 0;
+}
+.Element__like::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background-image: url("../../../images/Like_0.png");
+    background-position: center;
+    background-size: cover;
+    background-color: #fff;
+    width: 22px;
+    height: 19px;
+}
+.Element__like:checked::before{
+    background-image: url("../../../images/Like_1.png");
+}

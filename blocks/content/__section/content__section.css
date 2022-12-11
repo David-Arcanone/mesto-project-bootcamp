@@ -1,0 +1,9 @@
+.content__section{
+    margin: 0 auto;
+    padding-top: 40px;
+}
+@media screen and (max-width: 963px) {
+    .content__section{
+        padding: 42px 19px 0;
+    }
+}

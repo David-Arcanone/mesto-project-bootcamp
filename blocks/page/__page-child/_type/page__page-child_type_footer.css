@@ -1,0 +1,9 @@
+.page__page-child_type_footer{
+    padding-top:67px;
+    padding-bottom: 60px;
+}
+@media screen and (max-width: 963px) {
+    .page__page-child_type_footer{
+        padding:48px 19px 36px;
+    }
+}

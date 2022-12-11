@@ -1,0 +1,14 @@
+.Element{
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 282px;
+    min-height: 361px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 25px;
+}
