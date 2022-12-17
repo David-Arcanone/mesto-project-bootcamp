@@ -1,0 +1,8 @@
+.content__section_elements{
+    padding-top: 46.25px;
+}
+@media screen and (max-width: 963px) {
+    .content__section_elements{
+        padding-top: 36px;
+    }
+}

@@ -1,0 +1,11 @@
+.pop-up__window{
+    position: relative;
+    box-sizing: border-box;
+    z-index: 2;
+    font-family: "Inter", "Arial", sans-serif;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

@@ -1,0 +1,21 @@
+.profile__edit-button{
+    display: inline;
+    line-height: 0;
+    border: none;
+    grid-area: edit;
+    width: 24px;
+    height: 24px;
+    content: "";
+    background-color: #000;
+    background-image: url("../../../images/edit.svg");
+    background-size: cover;
+    background-position: center;
+    justify-self:flex-start;
+}
+@media screen and (max-width: 963px){
+    .profile__edit-button{
+        line-height: 33px;
+        width: 18px;
+        height: 18px;
+    }
+}
