@@ -23,5 +23,5 @@
     height: 19px;
 }
 .element__like:checked::before{
-    background-image: url("../../../images/Like_1.svg");
+    background-image: url("../../../images/like_1.svg");
 }
