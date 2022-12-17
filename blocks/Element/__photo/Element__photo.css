@@ -1,5 +1,6 @@
-.Element__photo{
+.element__photo{
     width: 282px;
-    height: 282px;
+    aspect-ratio: 1 / 1;
     line-height: 0;
+    cursor: pointer;
 }

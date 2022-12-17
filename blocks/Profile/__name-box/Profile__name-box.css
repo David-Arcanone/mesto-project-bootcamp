@@ -1,12 +1,13 @@
-.Profile__name-box{
+.profile__name-box{
     max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: baseline;
     gap:18px;
 }
 @media screen and (max-width: 963px){
-    .Profile__name-box{
+    .profile__name-box{
         justify-content: center;
         gap: 10px;
     }

@@ -13,3 +13,6 @@
     font-size: 14px;
     line-height: 1.21;
 }
+.pop-up__input-box::placeholder{
+    color: #C4C4C4;
+}

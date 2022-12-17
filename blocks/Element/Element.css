@@ -1,4 +1,5 @@
-.Element{
+.element{
+    position: relative;
     box-sizing: border-box;
     background: #FFFFFF;
     border-radius: 10px;

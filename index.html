@@ -11,74 +11,22 @@
   <div class="page">
     <!--header-->
     <header class="header page__page-child page__page-child_type_header">
-      <img class="header__logo" src="./images/mesto_0.png" alt="лого">
-      <div class="header__line"></div>
+      <img class="header__logo" src="./images/mesto-white.svg" alt="лого">
     </header>
     <!-- основные материалы-->
     <main class="content page__page-child">
-      <section class="Profile content__section">
-        <img alt="аватарка пользователя" src="./images/Kusto.png" class="Profile__Avatar">
-        <div class="Profile__Info">
-          <div class="Profile__name-box"><h1 class="Profile__name">Жак-Ив Кусто</h1><button class="Profile__edit-button link-transition"></button></div>
-          <p class="Profile__status">Исследователь океана</p>
+      <section class="profile content__section">
+        <img alt="аватарка пользователя" src="./images/Kusto.png" class="profile__avatar">
+        <div class="profile__Info">
+          <div class="profile__name-box">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button link-transition" type="button"></button>
+          </div>
+          <p class="profile__status">Исследователь океана</p>
         </div>
-        <button class="Profile__add-box link-transition"></button>
+        <button class="profile__add-button link-transition" type="button"></button>
       </section>
-      <section class="Elements content__section content__section_Elements">
-        <figure class="Element Elements__child">
-          <img src="./images/Karachaevsk.png" alt="фото для оценки" class="Element__photo">
-          <figcaption class="Element__description">
-            <h2 class="Element__name">Карачаевск</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like1" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-          </figcaption>
-        </figure>        
-        <figure class="Element Elements__child">
-          <img src="./images/Elbrus.png" alt="фото для оценки" class="Element__photo">
-          <figcaption  class="Element__description">
-            <h2 class="Element__name">Гора Эльбрус</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like2" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-            </figcaption >
-        </figure>
-        <figure class="Element Elements__child">
-          <img src="./images/Dombai.png" alt="фото для оценки" class="Element__photo">
-          <figcaption  class="Element__description">
-            <h2 class="Element__name">Домбай</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like3" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-            </figcaption >
-        </figure>
-        <figure class="Element Elements__child">
-          <img src="./images/Elbrus.png" alt="фото для оценки" class="Element__photo">
-          <figcaption  class="Element__description">
-            <h2 class="Element__name">Гора Эльбрус</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like4" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-            </figcaption >
-        </figure>
-        <figure class="Element Elements__child">
-          <img src="./images/Dombai.png" alt="фото для оценки" class="Element__photo">
-          <figcaption  class="Element__description">
-            <h2 class="Element__name">Домбай</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like5" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-          </figcaption>
-        </figure>
-        <figure class="Element Elements__child">
-          <img src="./images/Karachaevsk.png" alt="фото для оценки" class="Element__photo">
-          <figcaption  class="Element__description">
-            <h2 class="Element__name">Карачаево-Ч...</h2>
-            <label class="Element__check-label">
-              <input type="checkbox" name="like6" value="no" class="Element__like link-transition link-transition_type_like">
-            </label>
-            </figcaption >
-        </figure>
+      <section class="elements content__section content__section_elements">
       </section>
     </main>
     <!--подвал-->
@@ -87,18 +35,46 @@
     </footer>
   </div>
   <!--всплывающее окно-->
-  <div class="pop-up pop-up_no-display">
-    <div class="pop-up__background"></div>
-    <div class="pop-up__window">
-      <button class="pop-up__close-button link-transition"></button>
-      <h2 class="pop-up__title">Редактировать профиль</h2>
-      <input name="input-name" type="text" value="Жак-Ив Кусто" class="pop-up__input-box pop-up__input-box_type_name">
-      <input name="input-status" type="text" value="Исследователь океана" class="pop-up__input-box pop-up__input-box_type_status">
-      <button class="pop-up__save-button-box link-transition link-transition_type_save">Сохранить</button>
-    </div>
+  <div class="pop-up pop-up_container_edit pop-up_fade_no-display">
+    <form class="form form_type_edit pop-up__window pop-up__window_type_form">
+      <button class="pop-up__close-button pop-up__close-button_type_edit link-transition" type="button" aria-label="закрыть"></button>
+      <h2 class="form__title pop-up__title">Редактировать профиль</h2>
+      <input name="input-name" type="text" autocomplete="off" value="" class="pop-up__input-box pop-up__input-box_type_name">
+      <input name="input-status" type="text" autocomplete="off" value="" class="pop-up__input-box pop-up__input-box_type_status">
+      <button class="pop-up__save-button-box pop-up__save-button-box_type_edit link-transition link-transition_type_save" type="submit">Сохранить</button>
+    </form>
   </div>
-  <!--скрипт-->
-  <script src="./script/index.js"></script>
+  <div class="pop-up pop-up_container_add pop-up_fade_no-display">
+    <form class="form form_type_add pop-up__window pop-up__window_type_form">
+      <button class="pop-up__close-button link-transition pop-up__close-button_type_add" type="button" aria-label="закрыть"></button>
+      <h2 class="pop-up__title">Новое место</h2>
+      <input name="input-element-name" type="text" value="" autocomplete="off" placeholder="Название" class="pop-up__input-box pop-up__input-box_type_element-name">
+      <input name="input-element-src" type="text" value="" autocomplete="off" placeholder="Ссылка на картинку" class="pop-up__input-box pop-up__input-box_type_element-src">
+      <button class="pop-up__save-button-box pop-up__save-button-box_type_add link-transition link-transition_type_save" type="submit">Создать</button>
+    </form>
+  </div>
+  <div class="pop-up pop-up_container_photocard pop-up_fade_no-display">
+    <figure class="pop-up__window pop-up__window_type_img">
+      <button class="pop-up__close-button link-transition pop-up__close-button_type_image" type="button" aria-label="закрыть"></button>
+      <img src="./images/mesto-black.svg" alt="фото для оценки" class="pop-up__photocard-img">
+      <figcaption class="pop-up__photocard-name">фотокарточка</figcaption>
+    </figure>
+  </div>
+  <!--шаблон элемента-->
+  <template class="template-element" id="template">
+    <article class="element elements__child">
+      <button class="element__trash link-transition" type="button"></button>
+      <img src="./images/mesto-white.svg" alt="фото для оценки" class="element__photo">
+      <div  class="element__description">
+        <h2 class="element__name"></h2>
+        <label class="element__check-label">
+          <input type="checkbox" name="" value="no" class="element__like link-transition link-transition_type_like">
+        </label>
+        </div >
+    </article>
+  </template>
+  <!--скрипты-->
+  <script defer src="./script/default_info.js"></script>
+  <script defer src="./script/index.js"></script>
 </body>
 </html>
-

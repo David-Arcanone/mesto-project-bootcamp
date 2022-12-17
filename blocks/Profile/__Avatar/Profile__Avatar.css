@@ -1,4 +1,4 @@
-.Profile__Avatar{
+.profile__avatar{
     grid-area: avatar;
     border-radius: 50%;
     box-sizing: border-box;

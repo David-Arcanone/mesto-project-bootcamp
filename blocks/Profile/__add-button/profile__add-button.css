@@ -1,4 +1,4 @@
-.Profile__add-box{
+.profile__add-button{
     width: 100%;
     max-width: 800px;
     margin-top: calc(36px - 22.25px);
@@ -8,14 +8,13 @@
     border-radius: 2px;
     content: "";
     background-color: #000;
-    background-image: url("../../../images/Add.png");
+    background-image: url("../../../images/add.svg");
     background-size: 16px 16px;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 @media screen and (min-width: 964px){
-    .Profile__add-box{
+    .profile__add-button{
         width: 150px;
         margin-top: 0;
         justify-self: flex-end;

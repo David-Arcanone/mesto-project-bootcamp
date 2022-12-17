@@ -1,8 +1,8 @@
-.pop-up__input-box_type_name{
+.pop-up__input-box_type_element-name{
     margin-top: 41px;
 }
 @media screen and (max-width: 600px){
-    .pop-up__input-box_type_name{
+    .pop-up__input-box_type_element-name{
         margin-top: 62px;
     }
 }

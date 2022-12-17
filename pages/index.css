@@ -11,46 +11,49 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__page-child/page__page-child.css);
 @import url(../blocks/page/__page-child/_type/page__page-child_type_header.css);
-@import url(../blocks/page/__page-child/_type//page__page-child_type_footer.css);
+@import url(../blocks/page/__page-child/_type/page__page-child_type_footer.css);
 /*header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
 /*main*/
 /*@import url(../blocks/content/content.css);*/
 @import url(../blocks/content/__section/content__section.css);
-@import url(../blocks/content/__section/_Elements/content__section_Elements.css);
-/**1 секция Profile*/
-@import url(../blocks/Profile/Profile.css);
-@import url(../blocks/Profile/__Avatar/Profile__Avatar.css);
-@import url(../blocks/Profile/__Info/Profile__Info.css);
-@import url(../blocks/Profile/__name-box/Profile__name-box.css);
-@import url(../blocks/Profile/__name/Profile__name.css);
-@import url(../blocks/Profile/__edit-button/Profile__edit-button.css);
-@import url(../blocks/Profile/__status/Profile__status.css);
-@import url(../blocks/Profile/__add-box/Profile__add-box.css);
-/**2 секция Elements*/
-@import url(../blocks/Elements/Elements.css);
-@import url(../blocks/Elements/__child/Elements__child.css);
-@import url(../blocks/Element/Element.css);
-@import url(../blocks/Element/__photo/Element__photo.css);
-@import url(../blocks/Element/__description/Element__description.css);
-@import url(../blocks/Element/__name/Element__name.css);
-@import url(../blocks/Element/__like/Element__like.css);
+@import url(../blocks/content/__section/_elements/content__section_elements.css);
+/**1 секция profile*/
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__Info/profile__Info.css);
+@import url(../blocks/profile/__name-box/profile__name-box.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__status/profile__status.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+/**2 секция elements*/
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/__child/elements__child.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__trash/element__trash.css);
+@import url(../blocks/element/__photo/element__photo.css);
+@import url(../blocks/element/__description/element__description.css);
+@import url(../blocks/element/__name/element__name.css);
+@import url(../blocks/element/__like/element__like.css);
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 /*popup menu*/
 @import url(../blocks/pop-up/pop-up.css);
-@import url(../blocks/pop-up/_no-display/pop-up_no-display.css);
-@import url(../blocks/pop-up/__background/pop-up__background.css);
+@import url(../blocks/pop-up/_fade/pop-up_fade_fading.css);
+@import url(../blocks/pop-up/_fade/pop-up_fade_no-display.css);
 @import url(../blocks/pop-up/__window/pop-up__window.css);
+@import url(../blocks/pop-up/__window/_type/pop-up__window_type_form.css);
+@import url(../blocks/pop-up/__window/_type/pop-up__window_type_img.css);
 @import url(../blocks/pop-up/__close-button/pop-up__close-button.css);
 @import url(../blocks/pop-up/__title/pop-up__title.css);
 @import url(../blocks/pop-up/__input-box/pop-up__input-box.css);
 @import url(../blocks/pop-up/__input-box/_type/pop-up__input-box_type_name.css);
 @import url(../blocks/pop-up/__input-box/_type/pop-up__input-box_type_status.css);
+@import url(../blocks/pop-up/__input-box/_type/pop-up__input-box_type_element-name.css);
+@import url(../blocks/pop-up/__input-box/_type/pop-up__input-box_type_element-src.css);
 @import url(../blocks/pop-up/__save-button-box/pop-up__save-button-box.css);
-
-
-
+@import url(../blocks/pop-up/__photocard-img/pop-up__photocard-img.css);
+@import url(../blocks/pop-up/__photocard-name/pop-up__photocard-name.css);

@@ -5,7 +5,7 @@
     transition-timing-function: linear;
     transition-delay:0s;
     cursor: pointer;
-  }  
+  }
   .link-transition:hover{
     opacity: 0.6;
   }

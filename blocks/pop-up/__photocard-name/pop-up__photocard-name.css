@@ -1,0 +1,14 @@
+.pop-up__photocard-name{
+    position: absolute;
+    font-size: 12px;
+    line-height: 1.25;
+    left:0;
+    bottom:-25px;
+    max-width: 50vw;
+    text-overflow: ellipsis;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}

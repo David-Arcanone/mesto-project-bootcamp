@@ -1,5 +1,5 @@
 .pop-up__save-button-box{
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     background-color: #000;
     border-radius: 2px;
     color: #fff;
@@ -15,7 +15,7 @@
     margin-top: 48px;
     margin-bottom: 37px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px){
     .pop-up__save-button-box{
         height: 46px;
         width: 238px;

@@ -1,4 +1,4 @@
-.Profile__status{
+.profile__status{
     font-size: 18px;
     line-height: 1.22;
     grid-area: status;
@@ -9,7 +9,7 @@
     max-width: 500px;
 }
 @media screen and (max-width: 963px) {
-    .Profile__status{
+    .profile__status{
         font-size: 14px;
         line-height: 1.21;
         justify-self: center;

@@ -1,4 +1,4 @@
-.Profile__Info{
+.profile__Info{
     grid-area: info;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     max-width: 100%;
 }
 @media screen and (max-width: 963px){
-    .Profile__Info{
+    .profile__Info{
         column-gap: 10px;
         row-gap: 14px;
         align-items: center;
