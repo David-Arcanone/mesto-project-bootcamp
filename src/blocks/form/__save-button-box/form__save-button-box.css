@@ -1,0 +1,27 @@
+.form__save-button-box{
+    box-sizing: border-box;
+    background-color: #000;
+    border-radius: 2px;
+    color: #fff;
+    height: 50px;
+    width: 358px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-size: 18px;
+    line-height: 1.22;
+    margin-top: 36px;
+    margin-bottom: 37px;
+}
+@media screen and (max-width: 600px){
+    .form__save-button-box{
+        height: 46px;
+        width: 238px;
+        font-size: 14px;
+        line-height: 1.21;
+        margin-top: 33px;
+        margin-bottom: 25px;
+    }
+}

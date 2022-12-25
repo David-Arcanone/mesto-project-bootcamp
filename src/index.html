@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto Russia</title>
+  <meta name="author" content="Давид Григорьев">
+</head>
+<body class="body-color">
+  <div class="page">
+    <!--header-->
+    <header class="header page__page-child page__page-child_type_header">
+      <img class="header__logo" src="<%=require('./images/mesto-white.svg')%>" alt="лого">
+    </header>
+    <!-- основные материалы-->
+    <main class="content page__page-child">
+      <section class="profile content__section">
+        <img alt="аватарка пользователя" src="<%=require('./images/Kusto.png')%>" class="profile__avatar">
+        <div class="profile__Info">
+          <div class="profile__name-box">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button id="edit" class="profile__edit-button link-transition" type="button"></button>
+          </div>
+          <p class="profile__status">Исследователь океана</p>
+        </div>
+        <button id="add" class="profile__add-button link-transition" type="button"></button>
+      </section>
+      <section class="elements content__section content__section_elements">
+      </section>
+    </main>
+    <!--подвал-->
+    <footer class="footer page__page-child page__page-child_type_footer">
+      <p class="footer__copyright">© 2022 Mesto Russia</p>
+    </footer>
+  </div>
+  <!--всплывающее окно-->
+  <div class="pop-up pop-up_container_edit pop-up_fade_no-display">
+    <form class="form form_type_edit pop-up__window pop-up__window_type_form" novalidate name="edit">
+      <button class="form__close-button pop-up__close-button pop-up__close-button_type_edit link-transition" type="button" aria-label="закрыть"></button>
+      <h2 class="form__title">Редактировать профиль</h2>
+      <div class="form__input-container">
+        <input id="input-name" name="inputName" type="text" required minlength="2" maxlength="40" autocomplete="off" value="" class="form__input form__input_type_name">
+        <span class="form__input-error-message form__input-error-message_type_input-name"></span>
+      </div>
+      <div class="form__input-container">
+        <input id="input-status" name="inputStatus" type="text" required minlength="2" maxlength="200" autocomplete="off" value="" class="form__input form__input_type_status">
+        <span class="form__input-error-message form__input-error-message_type_input-status"></span>
+      </div>
+      <button class="form__save-button-box form__save-button-box_type_edit link-transition link-transition_type_save" type="submit">Сохранить</button>
+    </form>
+  </div>
+  <div class="pop-up pop-up_container_add pop-up_fade_no-display">
+    <form class="form form_type_add pop-up__window pop-up__window_type_form" novalidate name="add">
+      <button class="form__close-button pop-up__close-button pop-up__close-button_type_add link-transition" type="button" aria-label="закрыть"></button>
+      <h2 class="form__title">Новое место</h2>
+      <div class="form__input-container">
+        <input id="input-element-name" name="inputElementName" type="text" minlength="2" maxlength="30" required value="" autocomplete="off" placeholder="Название" class="form__input form__input_type_element-name">
+        <span class="form__input-error-message form__input-error-message_type_input-element-name"></span>
+      </div>
+      <div class="form__input-container">
+        <input id="input-element-src" name="inputElementSrc" type="url" required value="" autocomplete="off" placeholder="Ссылка на картинку" class="form__input form__input_type_element-src">
+        <span class="form__input-error-message form__input-error-message_type_input-element-src"></span>
+      </div>
+      <button name="addSave" class="form__save-button-box form__save-button-box_type_add link-transition link-transition_type_save" type="submit">Создать</button>
+    </form>
+  </div>
+  <div class="pop-up pop-up_container_photocard pop-up_fade_no-display">
+    <div class="pop-up__window pop-up__window_type_img">
+      <button class="pop-up__close-button link-transition pop-up__close-button_type_image" type="button" aria-label="закрыть"></button>
+      <img src="<%=require('./images/mesto-black.svg')%>" alt="фото для оценки" class="pop-up__photocard-img">
+      <p class="pop-up__photocard-name">фотокарточка</p>
+    </div>
+  </div>
+  <!--шаблон элемента-->
+  <template class="template-element" id="template">
+    <article class="element elements__child">
+      <button class="element__trash link-transition" type="button"></button>
+      <img src="<%=require('./images/mesto-white.svg')%>" alt="фото для оценки" class="element__photo">
+      <div  class="element__description">
+        <h2 class="element__name"></h2>
+        <label class="element__check-label">
+          <button type="button" name="" value="no" class="element__like link-transition link-transition_type_like"></button>
+        </label>
+        </div >
+    </article>
+  </template>
+</body>
+</html>

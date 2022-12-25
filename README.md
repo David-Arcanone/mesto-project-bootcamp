@@ -18,10 +18,11 @@
 формы имя и ссылка на фото.
 Фотокарточки можно рассмотреть в pop-up окне (при клике на фото), поставить лайк и удалить.
 Анимации открытия и закртия pop-up окон плавные.
+Есть валидация полей ввода в формах.
 
 **Технологии**
 html, css, js. Применяется шрифт Inter,
-используется .nojekyll и normalize.css.
+используется webpack, .nojekyll и normalize.css.
 
 https://david-arcanone.github.io/mesto-project-bootcamp/index.html
 
