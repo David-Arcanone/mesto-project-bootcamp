@@ -15,7 +15,9 @@
     <!-- основные материалы-->
     <main class="content page__page-child">
       <section class="profile content__section">
-        <img alt="аватарка пользователя" src="<%=require('./images/Kusto.png')%>" class="profile__avatar">
+        <button id="changeAvatar" class="profile__change-avatar-button" type="button"><!--
+          --><img alt="аватарка пользователя" src="<%=require('./images/Kusto.png')%>" class="profile__avatar"><!--
+        --></button>
         <div class="profile__Info">
           <div class="profile__name-box">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -30,11 +32,11 @@
     </main>
     <!--подвал-->
     <footer class="footer page__page-child page__page-child_type_footer">
-      <p class="footer__copyright">© 2022 Mesto Russia</p>
+      <p class="footer__copyright">© 2022-2023 Mesto Russia</p>
     </footer>
   </div>
   <!--всплывающее окно-->
-  <div class="pop-up pop-up_container_edit pop-up_fade_no-display">
+  <div class="pop-up pop-up_container_edit">
     <form class="form form_type_edit pop-up__window pop-up__window_type_form" novalidate name="edit">
       <button class="form__close-button pop-up__close-button pop-up__close-button_type_edit link-transition" type="button" aria-label="закрыть"></button>
       <h2 class="form__title">Редактировать профиль</h2>
@@ -46,10 +48,10 @@
         <input id="input-status" name="inputStatus" type="text" required minlength="2" maxlength="200" autocomplete="off" value="" class="form__input form__input_type_status">
         <span class="form__input-error-message form__input-error-message_type_input-status"></span>
       </div>
-      <button class="form__save-button-box form__save-button-box_type_edit link-transition link-transition_type_save" type="submit">Сохранить</button>
+      <button class="form__save-button-box form__save-button-box_type_edit" type="submit" name="save">Сохранить</button>
     </form>
   </div>
-  <div class="pop-up pop-up_container_add pop-up_fade_no-display">
+  <div class="pop-up pop-up_container_add">
     <form class="form form_type_add pop-up__window pop-up__window_type_form" novalidate name="add">
       <button class="form__close-button pop-up__close-button pop-up__close-button_type_add link-transition" type="button" aria-label="закрыть"></button>
       <h2 class="form__title">Новое место</h2>
@@ -61,15 +63,26 @@
         <input id="input-element-src" name="inputElementSrc" type="url" required value="" autocomplete="off" placeholder="Ссылка на картинку" class="form__input form__input_type_element-src">
         <span class="form__input-error-message form__input-error-message_type_input-element-src"></span>
       </div>
-      <button name="addSave" class="form__save-button-box form__save-button-box_type_add link-transition link-transition_type_save" type="submit">Создать</button>
+      <button name="save" class="form__save-button-box form__save-button-box_type_add" type="submit">Создать</button>
     </form>
   </div>
-  <div class="pop-up pop-up_container_photocard pop-up_fade_no-display">
+  <div class="pop-up pop-up_container_photocard">
     <div class="pop-up__window pop-up__window_type_img">
       <button class="pop-up__close-button link-transition pop-up__close-button_type_image" type="button" aria-label="закрыть"></button>
       <img src="<%=require('./images/mesto-black.svg')%>" alt="фото для оценки" class="pop-up__photocard-img">
       <p class="pop-up__photocard-name">фотокарточка</p>
     </div>
+  </div>
+  <div class="pop-up pop-up_container_change-avatar">
+    <form class="form form_type_add pop-up__window pop-up__window_type_form" novalidate name="avatar">
+      <button class="form__close-button pop-up__close-button pop-up__close-button_type_change-avatar link-transition" type="button" aria-label="закрыть"></button>
+      <h2 class="form__title">Обновить аватар</h2>
+      <div class="form__input-container">
+        <input id="input-avatar-src" name="inputAvatarSrc" type="url" required value="" autocomplete="off" placeholder="Ссылка на картинку" class="form__input form__input_type_avatar-src">
+        <span class="form__input-error-message form__input-error-message_type_input-avatar-src"></span>
+      </div>
+      <button name="save" class="form__save-button-box form__save-button-box_type_avatar" type="submit">Сохранить</button>
+    </form>
   </div>
   <!--шаблон элемента-->
   <template class="template-element" id="template">
@@ -78,11 +91,15 @@
       <img src="<%=require('./images/mesto-white.svg')%>" alt="фото для оценки" class="element__photo">
       <div  class="element__description">
         <h2 class="element__name"></h2>
-        <label class="element__check-label">
+        <div class="element__like-box">
           <button type="button" name="" value="no" class="element__like link-transition link-transition_type_like"></button>
-        </label>
-        </div >
+          <p class="element__number-of-likes">0</p>
+        </div>
+      </div >
     </article>
-  </template>
+  </template><!--
+  <template class="template-element" id="templateTrash">
+      <button class="element__trash link-transition" type="button"></button>
+  </template>-->
 </body>
 </html>

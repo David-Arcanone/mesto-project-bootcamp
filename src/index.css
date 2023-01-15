@@ -21,6 +21,7 @@
 @import url(./blocks/content/__section/_elements/content__section_elements.css);
 /**1 секция profile*/
 @import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__change-avatar-button/profile__change-avatar-button);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
 @import url(./blocks/profile/__Info/profile__Info.css);
 @import url(./blocks/profile/__name-box/profile__name-box.css);
@@ -33,18 +34,20 @@
 @import url(./blocks/elements/__child/elements__child.css);
 @import url(./blocks/element/element.css);
 @import url(./blocks/element/__trash/element__trash.css);
+@import url(./blocks/element/__trash/_hidden/element__trash_hidden.css);
 @import url(./blocks/element/__photo/element__photo.css);
 @import url(./blocks/element/__description/element__description.css);
 @import url(./blocks/element/__name/element__name.css);
+@import url(./blocks/element/__like-box/element__like-box.css);
 @import url(./blocks/element/__like/element__like.css);
+@import url(./blocks/element/__number-of-likes/element__number-of-likes.css);
 @import url(./blocks/element/__like/_liked/element__like_liked.css);
 /*footer*/
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
 /*popup menu*/
 @import url(./blocks/pop-up/pop-up.css);
-@import url(./blocks/pop-up/_fade/pop-up_fade_fading.css);
-@import url(./blocks/pop-up/_fade/pop-up_fade_no-display.css);
+@import url(./blocks/pop-up/_opened/pop-up_opened.css);
 @import url(./blocks/pop-up/__window/pop-up__window.css);
 @import url(./blocks/pop-up/__window/_type/pop-up__window_type_form.css);
 @import url(./blocks/pop-up/__window/_type/pop-up__window_type_img.css);
@@ -55,9 +58,11 @@
 @import url(./blocks/form/__input-container/form__input-container.css);
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/form/__input/_error/form__input_error.css);
+@import url(./blocks/form/__input/_type/form__input_type_avatar-src.css);
 @import url(./blocks/form/__input/_type/form__input_type_name.css);
 @import url(./blocks/form/__input/_type/form__input_type_status.css);
 @import url(./blocks/form/__input/_type/form__input_type_element-name.css);
+@import url(./blocks/form/__input/_type/form__input_type_element-src.css);
 @import url(./blocks/form/__input/_type/form__input_type_element-src.css);
 @import url(./blocks/form/__input-error-message/form__input-error-message.css);
 @import url(./blocks/form/__input-error-message/_active/form__input-error-message_active.css);

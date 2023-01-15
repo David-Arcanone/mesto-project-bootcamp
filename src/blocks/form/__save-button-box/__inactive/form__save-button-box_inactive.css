@@ -5,3 +5,6 @@
     opacity: 0.2;
     user-select: none;
 }
+.form__save-button-box_inactive:hover{
+    opacity: 0.2;
+  }

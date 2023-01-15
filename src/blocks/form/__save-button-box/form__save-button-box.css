@@ -14,7 +14,16 @@
     line-height: 1.22;
     margin-top: 36px;
     margin-bottom: 37px;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay:0s;
+    cursor: pointer;
 }
+.form__save-button-box:hover{
+    opacity: 0.8;
+  }
 @media screen and (max-width: 600px){
     .form__save-button-box{
         height: 46px;

@@ -1,61 +1,137 @@
-import {openPopUp,newElement} from "./utils";
-function closePopUp(evt){//закрывает текущий попап
-  evt.target.closest(".pop-up").classList.add("pop-up_fade_fading");
-};
-function fadingAnimation(evt){//функция анимации закрытия pop-up
-  if (evt.animationName === "fade"){
-    evt.target.classList.remove("pop-up_fade_fading");
-    evt.target.classList.add("pop-up_fade_no-display");
-  }
-};
-function closePopUpLogic(){//проверка нажатия по фону попапа или кнопке Х для закрытия
-  const PopUpAll = document.querySelectorAll('.pop-up');//все попапы
+import {openPopUp,createNewElement,closePopUp, checkMyLike} from "./utils.js";
+import {changeAvatar,changeProfileInfo, createCard} from "./api.js";
+
+function runClosePopUpLogic(source){//проверка нажатия по фону попапа или кнопке Х для закрытия
+  const PopUpAll = document.querySelectorAll(`.${source.popUpClass}`);//все попапы
   PopUpAll.forEach((popUpElement) => {//закрытие для всех pop-up
     popUpElement.addEventListener('click',(evt)=>{//обработка закрытия от кнопок-Х и бэкграундов
-      if(evt.target.classList.contains("pop-up") || evt.target.classList.contains("pop-up__close-button")){
-        closePopUp(evt);};});
-    popUpElement.addEventListener('animationend',fadingAnimation);//обработка анимации закрытия pop-up (вспомогательная для закрытия)    
+      if(evt.target.classList.contains(source.popUpClass) || evt.target.classList.contains(source.popUpCloseButton)){
+        closePopUp(popUpElement);};});
   });
 };
-function newProfile(evt){//функция сохраняет новый профиль
-  evt.preventDefault();
-  if(!evt.target.querySelector(".form__save-button-box").classList.contains("form__save-button-box_inactive")){
-    const profileName = document.querySelector(".profile__name");//поле текущего имени
-    const profileStatus = document.querySelector(".profile__status");//поле текущего статуса
-    const newName = document.forms.edit.elements.inputName;//поле записи нового имени профиля
-    const newStatus = document.forms.edit.elements.inputStatus;//поле записи нового статуса профиля
-    profileName.textContent=newName.value;
-    profileStatus.textContent=newStatus.value;
-    closePopUp(evt);}
+function changeSaveButtontext(button, message){
+  button.textContent=message;
 };
-function displayEdit(){//функция открываем попап edit
-  const newName = document.forms.edit.elements.inputName;//поле записи нового имени профиля
-  const newStatus = document.forms.edit.elements.inputStatus;//поле записи нового статуса профиля
-  const profileName = document.querySelector(".profile__name");//поле текущего имени
-  const profileStatus = document.querySelector(".profile__status");//поле текущего статуса
-  openPopUp(document.forms.edit);
-  newName.value=profileName.textContent;
-  newStatus.value=profileStatus.textContent;
+function newProfile(source){//функция сохраняет новый профиль
+  changeSaveButtontext(source.buttonEditSave, "Сохранение...");
+  changeProfileInfo(source.newName.value, source.newStatus.value)
+  .then((result)=>{
+    source.profileName.textContent=result.name;
+    source.profileStatus.textContent=result.about;
+    closePopUp(source.popUp);
+    changeSaveButtontext(source.buttonEditSave, "Сохраненить");
+  })
+  .catch((err)=>{
+    console.log(err);
+    changeSaveButtontext(source.buttonEditSave, "Сохраненить");
+  })
+};
+function displayEdit(source){//функция открываем попап edit
+  openPopUp(source.popUp);
+  source.newName.value=source.profileName.textContent;
+  source.newStatus.value=source.profileStatus.textContent;
 }
-function editLogic(){//логика редактирования профиля
-  document.querySelector('.profile__edit-button').addEventListener("click", displayEdit);//нажатие кнопки редактирования профиля
-  document.forms.edit.addEventListener('submit', newProfile);// обработчик команды сохранения профиля
+function runEditLogic(source){//логика редактирования профиля
+  source.buttonOpenEdit.addEventListener("click", ()=>{//нажатие кнопки открыть попап
+    displayEdit({
+    popUp: source.popUpEdit,
+    newName: source.newName,
+    newStatus: source.newStatus,
+    profileName: source.profileName,
+    profileStatus: source.profileStatus
+  })});
+  source.popUpEdit.addEventListener('submit', (evt)=>{// обработчик команды сохранения профиля
+    evt.preventDefault();
+    newProfile({
+    buttonEditSave: source.buttonEditSave,
+    popUp: source.popUpEdit,
+    newName: source.newName,
+    newStatus: source.newStatus,
+    profileName: source.profileName,
+    profileStatus: source.profileStatus
+  })});
 };
-function displayAdd(){
-  openPopUp(document.forms.add);
-  document.forms.add.elements.inputElementName.value="";
-  document.forms.add.elements.inputElementSrc.value="";
+function addNewElement(source){//создание
+  changeSaveButtontext(source.buttonAddSave, "Сохранение...");
+  createCard({
+    name:source.formAddElements.inputElementName.value,
+    link: source.formAddElements.inputElementSrc.value
+  })
+  .then((res)=>{
+    source.elementsGrid.prepend(createNewElement({
+      elementLikeSelector: source.elementLikeSelector,
+      elementLikedByUserClass: source.elementLikedByUserClass,
+      elementTrashSelector: source.elementTrashSelector,
+      elementPhotocardSelector: source.elementPhotocardSelector,
+      newImgName: res.name,
+      newImgSrc: res.link,
+      template: source.template,
+      elementNameSelector: source.elementNameSelector,
+      elementPhotoSelector: source.elementPhotoSelector,
+      newId: res._id,
+      elementNumberOfLikesSelector: source.elementNumberOfLikesSelector,
+      likes: res.likes.length,
+      liked: false,//у новосозданной вами карточки, еще нет на странице, поэтому лайка вашего тоже нет
+      trashFilter: true,//рендер корзины необходим, тк создали его мы, проверка не нужна
+    }));
+    changeSaveButtontext(source.buttonAddSave, "Создать");
+    closePopUp(source.popUp);
+  })
+  .catch((err)=>{
+    console.log(err);
+    changeSaveButtontext(source.buttonAddSave, "Создать");
+  });
 };
-function checkNewElement(evt){//создание элемента
-  evt.preventDefault();
-  const formAddElements = document.forms.add.elements;
-    if(!formAddElements.addSave.classList.contains("form__save-button-box_inactive")){
-      document.querySelector('.elements').prepend(newElement(formAddElements.inputElementName.value,formAddElements.inputElementSrc.value));
-      closePopUp(evt);
-    }
+function runAddLogic(source){//логика добавления фотокарточки
+  source.formAdd.reset();//первоначальное удаление
+  source.buttonOpenAddPhotocard.addEventListener("click", ()=>{openPopUp(source.popUp);});//нажатие кнопки открыть попап
+  source.formAdd.addEventListener('submit', (evt)=>{//сабмит формы добавления фотокарточки
+    evt.preventDefault();
+    addNewElement({
+      elementLikeSelector: `.${source.elementLikeClass}`,
+      elementLikedByUserClass: source.elementLikedByUserClass,
+      elementNumberOfLikesSelector: source.elementNumberOfLikesSelector,
+      buttonAddSave: source.buttonAddSave,
+      elementTrashSelector: source.elementTrashSelector,
+      elementPhotocardSelector: source.elementPhotocardSelector,
+      elementsGrid: source.elementsGrid,
+      formAddElements: source.formAddElements,
+      popUp: source.popUp,
+      template: source.template,
+      elementNameSelector: source.elementNameSelector,
+      elementPhotoSelector: source.elementPhotoSelector,
+  });
+  source.formAdd.reset();//удаление после сабмита
+});
 };
-function addLogic(){//логика добавления фотокарточки
-  document.querySelector('.profile__add-button').addEventListener("click", displayAdd);//нажатие кнопки добавления карточки
-  document.forms.add.addEventListener('submit', checkNewElement);//сабмит формы добавления фотокарточки
-};
-export {closePopUpLogic,editLogic,addLogic};
+function changeAvatarPhoto(photoSource){
+ changeSaveButtontext(photoSource.buttonAvatarChangeSave, "Сохранение...");
+  changeAvatar(photoSource.newAvatarSrcValue)
+  .then(
+    (result)=>{
+    console.log(result);
+    photoSource.currentAvatarSrc.setAttribute("src", result.avatar);
+    closePopUp(photoSource.popUp);
+    changeSaveButtontext(photoSource.buttonAvatarChangeSave, "Сохранить");
+  })
+  .catch((errorMessage)=>{
+    console.log(errorMessage);
+    changeSaveButtontext(photoSource.buttonAvatarChangeSave, "Сохранить");
+  })  
+}
+function runAvatarChange(source){
+  source.formAvatarChange.reset();//изначально очищаем
+  source.buttonOpenAvatarChange.addEventListener("click",()=>{openPopUp(source.popUp);});//нажатие кнопки открыть попап
+  source.formAvatarChange.addEventListener('submit', (evt)=>{
+    evt.preventDefault();
+    changeAvatarPhoto({
+    buttonAvatarChangeSave: source.buttonAvatarChangeSave,
+    currentAvatarSrc: source.currentAvatarSrc,
+    newAvatarSrcValue: source.newAvatarSrc.value,
+    popUp: source.popUp
+    });
+  source.formAvatarChange.reset();//удаление текста в инпуте после сабмита
+});//сабмит формы добавления фотокарточки
+
+}
+export {runClosePopUpLogic,runEditLogic,runAddLogic,runAvatarChange};

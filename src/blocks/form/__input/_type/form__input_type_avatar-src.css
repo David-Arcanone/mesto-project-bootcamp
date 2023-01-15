@@ -1,0 +1,8 @@
+.form__input_type_avatar-src{
+    margin-top: 41px;
+}
+@media screen and (max-width: 600px){
+    .form__input_type_avatar-src{
+        margin-top: 62px;
+    }
+}

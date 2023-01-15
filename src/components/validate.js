@@ -17,20 +17,18 @@ function checkInputValidity (formElement, inputElement,inputErrorClass,errorClas
     hideInputError(formElement, inputElement,inputErrorClass,errorClass);
   }
 };
-function hasInvalidInput (inputList){//проверяем форму на наличие ошибок валидации
+function checkInvalidTextInput(inputList){//проверяем форму на наличие ошибок валидации
   return inputList.some((inputElement)=>{
     return !inputElement.validity.valid;
   });
 };
 function toggleButtonState (inputList,buttonElement, inactiveButtonClass){//функция меняет состояние кнопки сохранить от валидации формы
-  if(hasInvalidInput(inputList, inactiveButtonClass)){
+  if(checkInvalidTextInput(inputList, inactiveButtonClass)){
     buttonElement.classList.add(inactiveButtonClass);
-    buttonElement.classList.remove("link-transition");
-    buttonElement.classList.remove("link-transition_type_save");
+    buttonElement.setAttribute("disabled", "disabled");
   }else{
     buttonElement.classList.remove(inactiveButtonClass);
-    buttonElement.classList.add("link-transition");
-    buttonElement.classList.add("link-transition_type_save");
+    buttonElement.removeAttribute("disabled");
   }
 };
 function enableValidation(ValidationInfo){
@@ -39,6 +37,11 @@ function enableValidation(ValidationInfo){
     const inputList = Array.from(formElement.querySelectorAll(ValidationInfo.inputSelector));
     const buttonElement = formElement.querySelector(ValidationInfo.submitButtonSelector);
     toggleButtonState(inputList,buttonElement,ValidationInfo.inactiveButtonClass);//начальное состояние кнопок сохранения в форме
+    formElement.addEventListener("reset", ()=>{
+      setTimeout(() => {
+        toggleButtonState(inputList,buttonElement,ValidationInfo.inactiveButtonClass);
+      }, 0);
+    })
     inputList.forEach((inputElement) => {//валидация по инпутам формы
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement,ValidationInfo.inputErrorClass,ValidationInfo.errorClass);

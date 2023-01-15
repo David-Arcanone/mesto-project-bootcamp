@@ -1,0 +1,37 @@
+.profile__change-avatar-button{
+    margin: 0;
+    padding: 0;
+    grid-area: avatar;
+    width: 120px;
+    height: 120px;
+    content: "";
+    border: none;
+    position: relative;;
+    background-color: black;
+    clip-path: circle(50%);
+    cursor: pointer;
+}
+.profile__change-avatar-button::before{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url("../../../images/pencile.svg");
+    background-size: 26px 26px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.profile__change-avatar-button:hover::before{
+    opacity: 1;
+}
