@@ -20,7 +20,7 @@ function renderDefaultElements(source){//загрузка элементов ф�
       trashFilter: (element.owner._id===source.myId)?true:false,//рендер корзины, проверяем, мы ли его создали
     }))});
   })
-  .catch((err)=>{console.log(err)});
+  .catch((err)=>{console.log(`Ошибка получения карточек с сервера. ${err}`)});
 };
 function pressLike(source){//изменение статуса like
   const elementNumberOfLikes= source.elementBox.querySelector(source.elementNumberOfLikesSelector);
@@ -31,7 +31,7 @@ function pressLike(source){//изменение статуса like
       source.likeButton.classList.remove(source.elementLikedByUserClass);
       elementNumberOfLikes.textContent=res.likes.length;
     })
-    .catch((err)=>{console.log(err)});
+    .catch((err)=>{console.log(`Ошибка удаления лайка. ${err}`)});
   } else{
     console.log(source.elementBox.id);
     addLike(source.elementBox.id)
@@ -39,7 +39,7 @@ function pressLike(source){//изменение статуса like
       source.likeButton.classList.add(source.elementLikedByUserClass);
       elementNumberOfLikes.textContent=res.likes.length;
     })
-    .catch((err)=>{console.log(err)});
+    .catch((err)=>{console.log(`Ошибка лайка. ${err}`)});
   }
 };
 function displayImg(evt,popUpPhotocard, photocardName, photocardImg ){
@@ -57,7 +57,7 @@ function runProfileSetting(profileSource){
     return Promise.resolve(res._id);//вытащим Id в index.js
   })
   .catch((err)=>{console.log(err);
-  return Promise.reject("Неполучен Id пользователя");});
+  return Promise.reject(`Неполучен Профиль пользователя (id). ${err}`);});
 };
 function pressTrash(trashSource){
   deleteMyPhotocard(trashSource.id)
@@ -65,7 +65,7 @@ function pressTrash(trashSource){
     trashSource.remove();
   })
   .catch((err)=>{
-    console.log(err);
+    console.log(`Ошибка удаления карточки. ${err}`);
   });
 }
 function runBasicCardLogic(source){//логика инициализации основной страницы

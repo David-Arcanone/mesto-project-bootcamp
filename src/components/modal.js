@@ -2,8 +2,8 @@ import {openPopUp,createNewElement,closePopUp, checkMyLike} from "./utils.js";
 import {changeAvatar,changeProfileInfo, createCard} from "./api.js";
 
 function runClosePopUpLogic(source){//проверка нажатия по фону попапа или кнопке Х для закрытия
-  const PopUpAll = document.querySelectorAll(`.${source.popUpClass}`);//все попапы
-  PopUpAll.forEach((popUpElement) => {//закрытие для всех pop-up
+  const popUpAll = document.querySelectorAll(`.${source.popUpClass}`);//все попапы
+  popUpAll.forEach((popUpElement) => {//закрытие для всех pop-up
     popUpElement.addEventListener('click',(evt)=>{//обработка закрытия от кнопок-Х и бэкграундов
       if(evt.target.classList.contains(source.popUpClass) || evt.target.classList.contains(source.popUpCloseButton)){
         closePopUp(popUpElement);};});
@@ -19,11 +19,12 @@ function newProfile(source){//функция сохраняет новый пр�
     source.profileName.textContent=result.name;
     source.profileStatus.textContent=result.about;
     closePopUp(source.popUp);
-    changeSaveButtontext(source.buttonEditSave, "Сохраненить");
   })
   .catch((err)=>{
-    console.log(err);
-    changeSaveButtontext(source.buttonEditSave, "Сохраненить");
+    console.log(`Ошибка изменения профиля. ${err}`);
+  })
+  .finally(()=>{
+    changeSaveButtontext(source.buttonEditSave, "Сохранить");
   })
 };
 function displayEdit(source){//функция открываем попап edit
@@ -74,13 +75,15 @@ function addNewElement(source){//создание
       liked: false,//у новосозданной вами карточки, еще нет на странице, поэтому лайка вашего тоже нет
       trashFilter: true,//рендер корзины необходим, тк создали его мы, проверка не нужна
     }));
-    changeSaveButtontext(source.buttonAddSave, "Создать");
     closePopUp(source.popUp);
   })
   .catch((err)=>{
-    console.log(err);
+    console.log(`Ошибка создания карточки. ${err}`);
+  })
+  .finally(()=>{
     changeSaveButtontext(source.buttonAddSave, "Создать");
-  });
+  })
+  ;
 };
 function runAddLogic(source){//логика добавления фотокарточки
   source.formAdd.reset();//первоначальное удаление
@@ -112,12 +115,13 @@ function changeAvatarPhoto(photoSource){
     console.log(result);
     photoSource.currentAvatarSrc.setAttribute("src", result.avatar);
     closePopUp(photoSource.popUp);
-    changeSaveButtontext(photoSource.buttonAvatarChangeSave, "Сохранить");
   })
   .catch((errorMessage)=>{
-    console.log(errorMessage);
+    console.log(`Ошибка изменения аватара. ${errorMessage}`);
+  })
+  .finally(()=>{
     changeSaveButtontext(photoSource.buttonAvatarChangeSave, "Сохранить");
-  })  
+  })
 }
 function runAvatarChange(source){
   source.formAvatarChange.reset();//изначально очищаем
