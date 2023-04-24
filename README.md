@@ -1,10 +1,14 @@
 # Проект: Место
 
+<div align="center"><img src="./images/profile.jpg" alt="profile" width="40%">
+</div>
+
 ### Обзор
 Содержание:
 * Описание
 * Функциональность
 * Технологии
+* Планы на развитие
 
 **Описание**
 Сайт для просмотра красивых картинок, с возможностью ставить лайки и редактировать профиль и добавить фото.
@@ -18,15 +22,31 @@
 при переоткрытии попапа без сохранения значения затирается.
 Работает кнопка создания  новой фотокарточки. При нажатии возникнет всплывающее окно создания с параметрами
 формы имя и ссылка на фото.
-Фотокарточки можно рассмотреть в pop-up окне (при клике на фото), поставить лайк и удалить.
+Фотокарточки можно рассмотреть в pop-up окне (при клике на фото), поставить лайк и удалить (только созданные вами).
 Анимации открытия и закрытия pop-up окон плавные. Реализовано закрытие через Esc.
 Есть валидация полей ввода в формах.
 Реализовано обращение к серверу.
 
-**Технологии**
-html, css, js. Применяется шрифт Inter,
-используется webpack, .nojekyll и normalize.css.
+<table><tr><td valign="top" width="25%">
+<div align="center"><img src="./images/promo-feed.jpg" alt="feed">
+</div></td><td valign="top" width="25%">
+<div align="center"><img src="./images/profile-edit.jpg" alt="profileEdit">
+</div></td><td valign="top" width="25%">
+<div align="center"><img src="./images/newPlace.jpg" alt="modalNewLocation">
+</div></td><td valign="top" width="25%">
+<div align="center"><img src="./images/validation.jpg" alt="profilePic">
+</div></td></tr></table>
 
-https://david-arcanone.github.io/mesto-project-bootcamp/index.html
+Линк на работу https://david-arcanone.github.io/mesto-project-bootcamp/index.html
+
+**Технологии**
+html, css, js (3.26.1). Применяется шрифт Inter,
+используется webpack (5.75.0), .nojekyll и normalize.css.
+Для запуска локальной версии запустите скрипт `npm run dev`.
+Если желаете развернуть в своем gh-pages подкорректируйте package.json и запустите скрипт `npm run deploy`.
+
+
+**Планы на развитие**
+Реализовать свой бэкенд на Node.js
 
 ***Выполнил Григорьев Давид 2022***

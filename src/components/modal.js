@@ -12,7 +12,7 @@ function runClosePopUpLogic(source){//проверка нажатия по фо�
 function changeSaveButtontext(button, message){
   button.textContent=message;
 };
-function newProfile(source){//функция сохраняет новый профиль
+function renewProfile(source){//функция сохраняет новый профиль
   changeSaveButtontext(source.buttonEditSave, "Сохранение...");
   changeProfileInfo(source.newName.value, source.newStatus.value)
   .then((result)=>{
@@ -43,7 +43,7 @@ function runEditLogic(source){//логика редактирования про
   })});
   source.popUpEdit.addEventListener('submit', (evt)=>{// обработчик команды сохранения профиля
     evt.preventDefault();
-    newProfile({
+    renewProfile({
     buttonEditSave: source.buttonEditSave,
     popUp: source.popUpEdit,
     newName: source.newName,
@@ -76,6 +76,7 @@ function addNewElement(source){//создание
       trashFilter: true,//рендер корзины необходим, тк создали его мы, проверка не нужна
     }));
     closePopUp(source.popUp);
+    source.formAdd.reset();//удаление после сабмита
   })
   .catch((err)=>{
     console.log(`Ошибка создания карточки. ${err}`);
@@ -103,8 +104,8 @@ function runAddLogic(source){//логика добавления фотокар�
       template: source.template,
       elementNameSelector: source.elementNameSelector,
       elementPhotoSelector: source.elementPhotoSelector,
+      formAdd: source.formAdd
   });
-  source.formAdd.reset();//удаление после сабмита
 });
 };
 function changeAvatarPhoto(photoSource){
@@ -115,6 +116,7 @@ function changeAvatarPhoto(photoSource){
     console.log(result);
     photoSource.currentAvatarSrc.setAttribute("src", result.avatar);
     closePopUp(photoSource.popUp);
+    source.formAvatarChange.reset();//удаление текста в инпуте после сабмита
   })
   .catch((errorMessage)=>{
     console.log(`Ошибка изменения аватара. ${errorMessage}`);
@@ -132,9 +134,9 @@ function runAvatarChange(source){
     buttonAvatarChangeSave: source.buttonAvatarChangeSave,
     currentAvatarSrc: source.currentAvatarSrc,
     newAvatarSrcValue: source.newAvatarSrc.value,
-    popUp: source.popUp
+    popUp: source.popUp,
+    formAvatarChange: source.formAvatarChange,
     });
-  source.formAvatarChange.reset();//удаление текста в инпуте после сабмита
 });//сабмит формы добавления фотокарточки
 
 }

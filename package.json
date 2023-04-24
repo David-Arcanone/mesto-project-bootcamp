@@ -13,9 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/David-Arcanone/mesto-project-bootcamp.git"
   },
-  "keywords": [
-    "Robby"
-  ],
   "author": "David",
   "license": "ISC",
   "bugs": {
