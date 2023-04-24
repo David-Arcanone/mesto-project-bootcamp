@@ -1,6 +1,6 @@
 # Проект: Место
 
-<div align="center"><img src="./images/profile.jpg" alt="profile" width="40%">
+<div align="center"><img src="./src/images/profile.jpg" alt="profile" width="40%">
 </div>
 
 ### Обзор
@@ -28,13 +28,13 @@
 Реализовано обращение к серверу.
 
 <table><tr><td valign="top" width="25%">
-<div align="center"><img src="./images/promo-feed.jpg" alt="feed">
+<div align="center"><img src="./src/images/promo-feed.jpg" alt="feed">
 </div></td><td valign="top" width="25%">
-<div align="center"><img src="./images/profile-edit.jpg" alt="profileEdit">
+<div align="center"><img src="./src/images/profile-edit.jpg" alt="profileEdit">
 </div></td><td valign="top" width="25%">
-<div align="center"><img src="./images/newPlace.jpg" alt="modalNewLocation">
+<div align="center"><img src="./src/images/newPlace.jpg" alt="modalNewLocation">
 </div></td><td valign="top" width="25%">
-<div align="center"><img src="./images/validation.jpg" alt="profilePic">
+<div align="center"><img src="./src/images/validation.jpg" alt="profilePic">
 </div></td></tr></table>
 
 Линк на работу https://david-arcanone.github.io/mesto-project-bootcamp/index.html
