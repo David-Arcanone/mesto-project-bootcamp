@@ -27,13 +27,11 @@
 Есть валидация полей ввода в формах.
 Реализовано обращение к серверу.
 
-<table><tr><td valign="top" width="25%">
-<div align="center"><img src="./src/images/promo-feed.jpg" alt="feed">
-</div></td><td valign="top" width="25%">
+<table><tr><td valign="top" width="33%">
 <div align="center"><img src="./src/images/profile-edit.jpg" alt="profileEdit">
-</div></td><td valign="top" width="25%">
+</div></td><td valign="top" width="33%">
 <div align="center"><img src="./src/images/newPlace.jpg" alt="modalNewLocation">
-</div></td><td valign="top" width="25%">
+</div></td><td valign="top" width="33%">
 <div align="center"><img src="./src/images/validation.jpg" alt="profilePic">
 </div></td></tr></table>
 
